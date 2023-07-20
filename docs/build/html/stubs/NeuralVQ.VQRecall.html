@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NeuralVQ.VQRecall &mdash; NeuralVQ 0.1 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="NeuralVQ.load_worms2" href="NeuralVQ.load_worms2.html" />
+    <link rel="prev" title="API" href="../api.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            NeuralVQ
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../background.html">Neural Vector Quantizer Background</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../install.html">Install</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../api.html">API</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../api.html#classes">Classes</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">NeuralVQ.VQRecall</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../api.html#misc-functions">Misc Functions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../usage.html">Usage</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">NeuralVQ</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../api.html">API</a></li>
+      <li class="breadcrumb-item active">NeuralVQ.VQRecall</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/stubs/NeuralVQ.VQRecall.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="neuralvq-vqrecall">
+<h1>NeuralVQ.VQRecall<a class="headerlink" href="#neuralvq-vqrecall" title="Permalink to this heading"></a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="NeuralVQ.VQRecall">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">VQRecall</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nBMU</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nAnnoyTrees</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">50</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#NeuralVQ.VQRecall" title="Permalink to this definition"></a></dt>
+<dd><p>Vector Quantizer Recall Class</p>
+<p>A class to perform Recall of a dataset through a Vector Quantizer (possibly in parallel), and store all products resulting from the forward / backward mappings. 
+The <a class="reference external" href="https://github.com/spotify/annoy">Annoy library</a> is used for fast distance calculation and nearest / neighbor search.</p>
+<p class="rubric">Methods</p>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#NeuralVQ.VQRecall.BMU" title="NeuralVQ.VQRecall.BMU"><code class="xref py py-obj docutils literal notranslate"><span class="pre">BMU</span></code></a>()</p></td>
+<td><p>BMUs of each data vector.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#NeuralVQ.VQRecall.CADJ" title="NeuralVQ.VQRecall.CADJ"><code class="xref py py-obj docutils literal notranslate"><span class="pre">CADJ</span></code></a>()</p></td>
+<td><p>The CADJ matrix.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#NeuralVQ.VQRecall.QE" title="NeuralVQ.VQRecall.QE"><code class="xref py py-obj docutils literal notranslate"><span class="pre">QE</span></code></a>()</p></td>
+<td><p>Quantization Error of each data vector.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#NeuralVQ.VQRecall.RF" title="NeuralVQ.VQRecall.RF"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RF</span></code></a>()</p></td>
+<td><p>Receptive Fields of each prototype.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#NeuralVQ.VQRecall.RFL" title="NeuralVQ.VQRecall.RFL"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RFL</span></code></a>()</p></td>
+<td><p>The Winning Receptive Field Label</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#NeuralVQ.VQRecall.RFL_Dist" title="NeuralVQ.VQRecall.RFL_Dist"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RFL_Dist</span></code></a>()</p></td>
+<td><p>The Receptive Field Label Distribution</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#NeuralVQ.VQRecall.RFL_Purity" title="NeuralVQ.VQRecall.RFL_Purity"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RFL_Purity</span></code></a>()</p></td>
+<td><p>The Receptive Field Label Purity</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#NeuralVQ.VQRecall.RFL_Purity_UOA" title="NeuralVQ.VQRecall.RFL_Purity_UOA"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RFL_Purity_UOA</span></code></a>()</p></td>
+<td><p>The Unweighted Average of Receptive Field Purities</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#NeuralVQ.VQRecall.RFL_Purity_WOA" title="NeuralVQ.VQRecall.RFL_Purity_WOA"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RFL_Purity_WOA</span></code></a>()</p></td>
+<td><p>The Weighted Average of Receptive Field Purities</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#NeuralVQ.VQRecall.RF_Size" title="NeuralVQ.VQRecall.RF_Size"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RF_Size</span></code></a>()</p></td>
+<td><p>Size of each prototype's Receptive Field.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#NeuralVQ.VQRecall.Recall" title="NeuralVQ.VQRecall.Recall"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Recall</span></code></a>(X, W[, XL, BMU_only, n_jobs])</p></td>
+<td><p>Performs recall of data through the Vector Quantizer.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code>([nBMU, nAnnoyTrees])</p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Attributes</p>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#NeuralVQ.VQRecall.nBMU" title="NeuralVQ.VQRecall.nBMU"><code class="xref py py-obj docutils literal notranslate"><span class="pre">nBMU</span></code></a></p></td>
+<td><p>Number of BMUs calculated during recall.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#NeuralVQ.VQRecall.nAnnoyTrees" title="NeuralVQ.VQRecall.nAnnoyTrees"><code class="xref py py-obj docutils literal notranslate"><span class="pre">nAnnoyTrees</span></code></a></p></td>
+<td><p>Number of trees used for approximate nearest neighbor search by Annoy.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="NeuralVQ.VQRecall.nBMU">
+<span class="sig-name descname"><span class="pre">nBMU</span></span><a class="headerlink" href="#NeuralVQ.VQRecall.nBMU" title="Permalink to this definition"></a></dt>
+<dd><p>Number of BMUs calculated during recall.</p>
+<p>Set at class instantiation, must be <span class="math notranslate nohighlight">\(\geq 2\)</span>.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="NeuralVQ.VQRecall.nAnnoyTrees">
+<span class="sig-name descname"><span class="pre">nAnnoyTrees</span></span><a class="headerlink" href="#NeuralVQ.VQRecall.nAnnoyTrees" title="Permalink to this definition"></a></dt>
+<dd><p>Number of trees used for approximate nearest neighbor search by Annoy.</p>
+<p>Set at class instantiation.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="NeuralVQ.VQRecall.Recall">
+<span class="sig-name descname"><span class="pre">Recall</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">W</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">XL</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">BMU_only</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_jobs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#NeuralVQ.VQRecall.Recall" title="Permalink to this definition"></a></dt>
+<dd><p>Performs recall of data through the Vector Quantizer.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl>
+<dt><strong>X</strong><span class="classifier"><cite>numpy.ndarray, dtype=float64, order=C</cite></span></dt><dd><p>The data matrix to be recalled, of dimension <code class="docutils literal notranslate"><span class="pre">N</span> <span class="pre">x</span> <span class="pre">d</span></code> (assumes data vectors in rows). 
+This array must have <cite>dtype = ‘float64’</cite> and be arranged in C-contiguous order; 
+it will be cast as such if either are violated.</p>
+</dd>
+<dt><strong>W</strong><span class="classifier"><cite>numpy.ndarray, dtype=float64, order=C</cite></span></dt><dd><p>The prototype matrix used for recall, of dimension <code class="docutils literal notranslate"><span class="pre">M</span> <span class="pre">x</span> <span class="pre">d</span></code> (assumed prototype vectors in rows). 
+This array must be arranged in C-contiguous order, and will be cast as such if given with Fortran ordering.</p>
+</dd>
+<dt><strong>XL</strong><span class="classifier"><cite>array-like, dtype=int</cite></span></dt><dd><p>Optional (default=``None``) vector of labels associated with each data vector. 
+If given, quantities related to the labeled data mapping will be computed. 
+Labels must be integer-encoded, which can be achieved via, e.g., <code class="docutils literal notranslate"><span class="pre">numpy.unique(return_inverse=True)</span></code>.</p>
+</dd>
+<dt><strong>BMU_only</strong><span class="classifier">bool</span></dt><dd><p>Optional flag (default=``False``) indicating whether all recall products should be computed. 
+Set to <code class="docutils literal notranslate"><span class="pre">True</span></code> to compute only the BMU and Quantization Error (saves a small amount of time).</p>
+</dd>
+<dt><strong>n_jobs</strong><span class="classifier">int or <code class="docutils literal notranslate"><span class="pre">None</span></code></span></dt><dd><p>Optional (default = <code class="docutils literal notranslate"><span class="pre">None</span></code>) number of OMP threads used for Recall. 
+If supplied as a positive integer, the system environmennt variable <code class="docutils literal notranslate"><span class="pre">OMP_NUM_THREADS</span></code> will be set to <code class="docutils literal notranslate"><span class="pre">n_jobs</span></code>.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt>None, internal containers are populated during call.</dt><dd></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="NeuralVQ.VQRecall.BMU">
+<span class="sig-name descname"><span class="pre">BMU</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#NeuralVQ.VQRecall.BMU" title="Permalink to this definition"></a></dt>
+<dd><p>BMUs of each data vector.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><cite>numpy.ndarray, dtype = int, shape = (N, nBMU)</cite></dt><dd><p>Element <cite>(i,j)</cite> contains the <cite>j-th</cite> BMU of the <cite>i-th</cite> data vector.
+BMUs are identified by their row index in the prototype matrix <cite>W</cite>.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="NeuralVQ.VQRecall.QE">
+<span class="sig-name descname"><span class="pre">QE</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#NeuralVQ.VQRecall.QE" title="Permalink to this definition"></a></dt>
+<dd><p>Quantization Error of each data vector.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><cite>numpy.ndarray, dtype = float64, shape = (N, nBMU)</cite></dt><dd><p>Element <cite>(i,j)</cite> contains the Quantization Error made when quantizing data vector <cite>i</cite> by it’s <cite>j-th</cite> BMU.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="NeuralVQ.VQRecall.RF">
+<span class="sig-name descname"><span class="pre">RF</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#NeuralVQ.VQRecall.RF" title="Permalink to this definition"></a></dt>
+<dd><p>Receptive Fields of each prototype.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><cite>list (length M) of lists</cite></dt><dd><p>Element <cite>i</cite> contains the indices of data vectors for whom prototype <cite>i</cite> is BMU.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="NeuralVQ.VQRecall.RF_Size">
+<span class="sig-name descname"><span class="pre">RF_Size</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#NeuralVQ.VQRecall.RF_Size" title="Permalink to this definition"></a></dt>
+<dd><p>Size of each prototype’s Receptive Field.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><cite>numpy.ndarray, dtype = int, shape = (M,)</cite></dt><dd><p>Element <cite>i</cite> contains the number of data vectors for whom prototype <cite>i</cite> is BMU.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="NeuralVQ.VQRecall.CADJ">
+<span class="sig-name descname"><span class="pre">CADJ</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#NeuralVQ.VQRecall.CADJ" title="Permalink to this definition"></a></dt>
+<dd><p>The CADJ matrix.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><cite>scipy.sparse._arrays.coo_array, dtype=int, shape=(M,M)</cite></dt><dd><p>Element <cite>(i,j)</cite> contains the number of data vectors for whom prototype <cite>i</cite> is BMU1 (first-ranking), 
+and prototype <cite>j</cite> is BMU2 (second-ranking).</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="NeuralVQ.VQRecall.RFL_Dist">
+<span class="sig-name descname"><span class="pre">RFL_Dist</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#NeuralVQ.VQRecall.RFL_Dist" title="Permalink to this definition"></a></dt>
+<dd><p>The Receptive Field Label Distribution</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><cite>list (length M)</cite> of <cite>dicts</cite></dt><dd><p>Element <cite>i</cite> of the list contains a dictionary whose keys are the unique set of labels supplied via <cite>XL</cite>, 
+and whose values correspond to the counts of data with those labels in the Receptive Field of prototype <cite>i</cite>.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="NeuralVQ.VQRecall.RFL">
+<span class="sig-name descname"><span class="pre">RFL</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#NeuralVQ.VQRecall.RFL" title="Permalink to this definition"></a></dt>
+<dd><p>The Winning Receptive Field Label</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><cite>numpy.ndarray, dtype=int, shape=(M,)</cite></dt><dd><p>Element <cite>i</cite> contains the winning plurality label of the data in the Receptive Field of prototype <cite>i</cite>. 
+This corresponds to the key with the largest associated value in <cite>RFL_Dist[i]</cite>.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="NeuralVQ.VQRecall.RFL_Purity">
+<span class="sig-name descname"><span class="pre">RFL_Purity</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#NeuralVQ.VQRecall.RFL_Purity" title="Permalink to this definition"></a></dt>
+<dd><p>The Receptive Field Label Purity</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><cite>numpy.ndarray, dtype=float64, shape=(M,)</cite></dt><dd><p>Element <cite>i</cite> contains the Purity of the Receptive Field of prototype <cite>i</cite>. 
+Purity is defined as 1 minus the <a class="reference external" href="https://en.wikipedia.org/wiki/Hellinger_distance">Hellinger Distance</a> between the ideal and observed label distributions of Receptive Field <cite>i</cite>. 
+The ideal distribution posits all data in <cite>RF[i]</cite> have the same label.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="NeuralVQ.VQRecall.RFL_Purity_UOA">
+<span class="sig-name descname"><span class="pre">RFL_Purity_UOA</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#NeuralVQ.VQRecall.RFL_Purity_UOA" title="Permalink to this definition"></a></dt>
+<dd><p>The Unweighted Average of Receptive Field Purities</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><cite>float</cite></dt><dd><p>Unweighted average of <code class="docutils literal notranslate"><span class="pre">RFL_Purity</span></code></p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="NeuralVQ.VQRecall.RFL_Purity_WOA">
+<span class="sig-name descname"><span class="pre">RFL_Purity_WOA</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#NeuralVQ.VQRecall.RFL_Purity_WOA" title="Permalink to this definition"></a></dt>
+<dd><p>The Weighted Average of Receptive Field Purities</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><cite>float</cite></dt><dd><p>Average of <code class="docutils literal notranslate"><span class="pre">RFL_Purity</span></code>, using <code class="docutils literal notranslate"><span class="pre">RF_Size</span></code> as weights.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../api.html" class="btn btn-neutral float-left" title="API" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="NeuralVQ.load_worms2.html" class="btn btn-neutral float-right" title="NeuralVQ.load_worms2" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Josh Taylor.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
