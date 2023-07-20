@@ -38,7 +38,7 @@ def randinit_W0_NG(data, M, method='rand_dim_rng', seed=None):
     elif method=='rand_global_rng':
         W0 = np.random.uniform(low=data.min(), high=data.max(), size=(M,d))
     elif method=='rand_sample':
-        W0 = data[np.random.choice(N, 2, replace=False), :]
+        W0 = data[np.random.choice(N, M, replace=False), :]
     else:
         raise ValueError("init must be one of {'rand_dim_rng','rand_global_rng','rand_sample'}")
     

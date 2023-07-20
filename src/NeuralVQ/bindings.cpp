@@ -14,7 +14,7 @@ PYBIND11_MODULE(_nvqlr_cpp, m)
   py::options options;
   options.disable_function_signatures();
 
-  m.attr("__name__") = "_NeuralVQ.nvqlr_cpp";
+  m.attr("__name__") = "NeuralVQ._nvqlr_cpp";
   
 
     // ** Recall 
