@@ -11,17 +11,6 @@ Welcome to NeuralVQ's documentation!
    :caption: Contents:
 
 
-
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
-
-
-
-
 Contents
 ========
 
@@ -32,3 +21,9 @@ Contents
    api
    usage
    
+.. Indices and tables
+.. ==================
+
+.. * :ref:`genindex`
+.. * :ref:`modindex`
+.. * :ref:`search`
