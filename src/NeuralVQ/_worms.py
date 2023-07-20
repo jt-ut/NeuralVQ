@@ -1,32 +1,27 @@
+import pkg_resources
 import numpy as np 
-
-def randinit_W0_NG(data, M, method='rand_dim_rng', seed=None):
-    np.random.seed(seed)
-    N = data.shape[0]
-    d = data.shape[1]
-
-    if method=='rand_dim_rng':
-        W0 = np.zeros((M,d))
-        for i in range(d):
-            W0[:,i] = np.random.uniform(low=data[:,i].min(), high=data[:,i].max(), size=(M,))
-    elif method=='rand_global_rng':
-        W0 = np.random.uniform(low=data.min(), high=data.max(), size=(M,d))
-    elif method=='rand_sample':
-        W0 = data[np.random.choice(N, 2, replace=False), :]
-    else:
-        raise ValueError("init must be one of {'rand_dim_rng','rand_global_rng','rand_sample'}")
-    
-    return W0
-
 
 def load_worms2(N = 10000, seed = None):
     # Package data loading instructions taken from here: 
     # https://kiwidamien.github.io/making-a-python-package-vi-including-data-files.html
-
-    import pkg_resources
-    import numpy as np 
     """
-    Return a subsample of the worms2 dataset, with cluster labels
+    The `worms2 dataset <http://cs.uef.fi/sipu/datasets/FastDensityPeaks.pdf>`_
+    
+    Returns a subsample of the worms2 dataset, of desired size, with associated cluster labels. 
+
+    Parameters
+    ----------
+    N : int
+      Integer denoting the requested sub-sample size, must be :math:`\leq 105,600`
+    seed : int 
+      Optional (default = ``None``). If given, passed to ``numpy.random.seed``. 
+
+    Returns
+    -------
+    X : `numpy.ndarray, dtype=float64, shape=(N,2)`
+      Sample, with invidivual observations in rows 
+    XL : `numpy.ndarray, dtype=int64, shape=(N,)
+      Cluster labels associated with each observation in the returned sample. 
     """
 
     # Check requested sample size, should be <= 105,600

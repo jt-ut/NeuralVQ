@@ -69,5 +69,3 @@ plt.scatter(x=W0[:,plotdim1], y=W0[:,plotdim2], c='dodgerblue', s=4, marker='d')
 plt.scatter(x=W[:,plotdim1], y=W[:,plotdim2], c='firebrick', s=4, marker='s') # learned prototypes 
 plt.show()
 
-
-

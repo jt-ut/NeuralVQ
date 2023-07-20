@@ -23,25 +23,27 @@ import platform
 # Depending on the user's system, need extra link flags 
 if platform.system()=='Darwin':
     extra_compile_args = ['-std=c++11', '-Xpreprocessor', '-fopenmp']
+    include_dirs=['/usr/local/Cellar/libomp']
     #extra_link_args = ["-fopenmp", '-dynamiclib', '-undefined', 'dynamic_lookup']
     extra_link_args = ['-lomp']
 elif platform.system()=='Linux':
     extra_compile_args = ['-std=c++11', '-fopenmp']
     extra_link_args = ['-fopenmp']
+    include_dirs=['']
 
 
 # C++ build directive 
 ext_module = Pybind11Extension(
     # Name of exposed module 
-    'NeuralVQ._cpp_NVQ',
+    'NeuralVQ._nvqlr_cpp',
+    #'NeuralVQ',
     # List C++ source files containing PyBind11 bindings, 
     # either all globbed, 
     #[str(fname) for fname in Path('src').glob('*.cpp')],
     # or specific ones 
     ['src/NeuralVQ/bindings.cpp'], # Source files  
     # Location of required headers for C++ source code 
-    #include_dirs=['NeuralVQ/_cpp_NVQ/include'],
-    include_dirs=['/usr/local/Cellar/libomp'],
+    include_dirs=include_dirs,
     # Build flags 
     extra_compile_args = extra_compile_args,
     extra_link_args = extra_link_args
@@ -57,15 +59,18 @@ setup(
     author_email='joshtaylor@utexas.edu',
     description='Neural Vector Quantizater Learning & Recall based on ANNoy Library',
     # List Python modules to be included in package 
-    py_modules = ['_py_NVQ'], 
+    py_modules = ['NeuralVQ._nvqlr', 'NeuralVQ._worms'], 
     # List external (C++) modules to be included, with their build instructions
     ext_modules=[ext_module],
+    cmdclass={"build_ext": build_ext},
     #cmdclass={"build_ext": custom_build_ext}, #Default build instruction via: cmdclass={"build_ext": build_ext},
     
     #packages = find_packages(), 
-    #packages=['NeuralVQ'], 
-    package_dir={'': 'src'},
-    include_package_data=True,
-    package_data={'': ['data/*.csv']},
+    packages=['NeuralVQ'], 
+    package_dir={'NeuralVQ': 'src/NeuralVQ'},
+    package_data={'NeuralVQ': ['data/*.csv']},
+    #include_package_data=True,
+    #package_data={'': ['data/*.csv']},
+    #data_files=[('data', ['src/NeuralVQ/data/worms2_N105600_data.csv', 'src/NeuralVQ/data/worms2_N105600_labels.csv'])]
 )
 

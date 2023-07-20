@@ -1,5 +1,12 @@
-from ._cpp_NVQ import LearnHistory 
-from ._cpp_NVQ import VQRecall
-from ._cpp_NVQ import VQLearn 
-from ._py_NVQ import randinit_W0_NG 
-from ._py_NVQ import load_worms2
+#from NeuralVQ._py_NVQ import * 
+#from NeuralVQ import _cpp_NVQ as cppnvq
+
+from NeuralVQ._nvqlr import randinit_W0_NG, VQRecall
+from NeuralVQ._worms import load_worms2
+#from NeuralVQ._cpp_NVQ import VQRecall, LearnHistory, VQLearn
+#from NeuralVQ._cpp_NVQ import LearnHistory
+
+#from NeuralVQ.pycpp_NVQ import LearnHistoryClass
+
+#__all__=['LearnHistory','LearnHistoryClass', 'VQRecall']
+__all__=['randinit_W0_NG', 'VQRecall', 'load_worms2']
